@@ -1,2 +1,5 @@
 # minimal-linux
-Minimal Linux
+## Minimal Linux
+
+cd ~
+mkdir -p minimal-linux/build/sources

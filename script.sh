@@ -12,3 +12,12 @@ wget -P downloads https://busybox.net/downloads/busybox-1.35.0.tar.bz2
 
 tar -xvf downloads/linux-5.15.79.tar.xz -C sources
 tar -xjvf downloads/busybox-1.35.0.tar.bz2 -C sources
+
+cd sources/busybox-1.35.0
+make defconfig
+make LDFLAGS=-static
+cp busybox ../../out/
+cd ../linux-5.15.79
+make defconfig
+make -j8 || exit
+cp arch/x86_64/boot/bzImage ~/simple-linux/linux/vmlinuz-5.15.79

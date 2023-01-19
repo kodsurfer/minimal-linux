@@ -20,4 +20,8 @@ cp busybox ../../out/
 cd ../linux-5.15.79
 make defconfig
 make -j8 || exit
-cp arch/x86_64/boot/bzImage ~/simple-linux/linux/vmlinuz-5.15.79
+cp arch/x86_64/boot/bzImage ~/minimal-linux/linux/vmlinuz-5.15.79
+
+mkdir -p ~/minimal-linux/build/initrd
+cd ~/minimal-linux/build/initrd
+vi init

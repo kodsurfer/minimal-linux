@@ -25,3 +25,12 @@ cp arch/x86_64/boot/bzImage ~/minimal-linux/linux/vmlinuz-5.15.79
 mkdir -p ~/minimal-linux/build/initrd
 cd ~/minimal-linux/build/initrd
 vi init
+
+chmod 777 init
+mkdir -p bin dev proc sys
+cd bin
+cp ~/simple-linux/build/out/busybox ./
+for prog in $(./busybox --list); do ln -s /bin/busybox $prog; done
+
+cd ..
+find . | cpio -o -H newc > ~/minimal-linux/linux/initrd-busybox-1.35.0.img

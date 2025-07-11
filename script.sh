@@ -37,4 +37,3 @@ find . | cpio -o -H newc > ~/minimal-linux/linux/initrd-busybox-1.35.0.img
 
 cd ~/minimal-linux/linux
 qemu-system-x86_64 -kernel vmlinuz-5.15.79 -initrd initrd-busybox-1.35.0.img -nographic -append 'console=ttyS0'
-
